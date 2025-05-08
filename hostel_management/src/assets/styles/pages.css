@@ -1,0 +1,28 @@
+.global_box {
+  flex-grow: 1;
+  padding: 16px;
+  margin-top: 64px;
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.global_div {
+  height: 750px;
+  width: 100%;
+}
+
+.inline_box_header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.global_button {
+  background-color: #37819d;
+}
+.global_button:hover {
+  background-color: rgb(6, 47, 63);
+}

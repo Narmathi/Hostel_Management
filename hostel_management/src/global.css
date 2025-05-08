@@ -1,0 +1,25 @@
+.global-flex-datatable {
+  display: flex !important;
+  flex-grow: 1 !important;
+  padding: 2px !important;
+  margin-top: 7px !important;
+
+  width: 100% !important;
+}
+
+.global-flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.global-datatable-width {
+  height: "500px";
+  width: "100%";
+}
+
+.button-header {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
