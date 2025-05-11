@@ -36,11 +36,11 @@ A full-stack web application to efficiently manage multiple hostels. It handles 
 
 ## ⚙️ Installation
 
-## ⚙️ Installation
 
 ### Frontend
 
 ```bash
+
 # Navigate to frontend directory
 cd frontend
 
@@ -49,6 +49,9 @@ npm install
 
 # Run development server
 npm run dev
+
+### Backend
+```bash
 
 npm install
 
