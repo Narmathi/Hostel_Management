@@ -36,24 +36,21 @@ A full-stack web application to efficiently manage multiple hostels. It handles 
 
 ## ⚙️ Installation
 
+## ⚙️ Installation
 
-### Frontend
+To run the project locally, follow these steps:
+
+---
+
+### 📦 Project Setup
 
 ```bash
-
-# Navigate to frontend directory
+# Navigate to the frontend directory
 cd frontend
 
-# Install dependencies
+# Install all dependencies
 npm install
 
-# Run development server
+# Start the development server
 npm run dev
 
-### Backend
-```bash
-
-npm install
-
-# Run backend server
-npm start
