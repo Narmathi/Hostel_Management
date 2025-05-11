@@ -1,37 +1,42 @@
-# Hostel Management System
+# 🏨 Hostel Management System
 
-A full-stack application designed to streamline the management of multiple hostels. It helps manage floors, rooms, and bed availability efficiently. The system also automates rent calculations (advance, monthly, daily, weekly) and simplifies tenant onboarding.
+A full-stack web application to efficiently manage multiple hostels. It handles hostel details like floors, rooms, and beds, while providing automated rent calculations and secure tenant management with JWT-based authentication.
 
-## 🏗️ Tech Stack
+---
 
-**Frontend:**
+## 🧰 Tech Stack
+
+### Frontend
 - React.js (with Vite)
 - MUI (Material-UI)
 - Bootstrap
 
-**Backend:**
+### Backend
 - Node.js
 - Express.js
 - MySQL
+- JWT (JSON Web Token) for authentication
 
-**API Communication:**
-- Axios
+### Communication
+- Axios (for API calls)
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-- Manage multiple hostels with detailed floor, room, and bed configurations.
-- Real-time availability of rooms and beds.
-- Automatic rent calculations (advance, monthly, weekly, daily).
-- Add and manage tenant details.
-- Dynamic status updates (rooms/beds set to *Occupied* upon tenant assignment).
+- ✅ Multi-hostel management
+- 🏢 Add floors, rooms, and beds with detailed tracking
+- 🔢 Auto-calculation of advance, monthly, weekly, and daily rent
+- 🧍 Add tenants with personal credentials and assign available beds
+- 🟢 Real-time availability check of rooms/beds
+- 🔒 JWT-based authentication for secure login and protected routes
+- 📝 Dynamic status updates for room/bed occupation
 
 ---
 
 ## ⚙️ Installation
 
-### Frontend Setup
+### Frontend
 
 ```bash
 # Navigate to frontend directory
@@ -40,5 +45,14 @@ cd frontend
 # Install dependencies
 npm install
 
-# Start development server
+# Run development server
 npm run dev
+
+# Navigate to backend directory
+cd backend
+
+# Install dependencies
+npm install
+
+# Run backend server
+npm start
