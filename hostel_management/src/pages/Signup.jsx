@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField, Typography, Button, Box, Container } from "@mui/material";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -85,13 +87,19 @@ function Signup() {
     }
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, []);
   return (
     <>
       <Container
         maxWidth="xs"
         sx={{
           border: "1px solid #000",
-         
+
           padding: 5,
           marginTop: 20,
         }}

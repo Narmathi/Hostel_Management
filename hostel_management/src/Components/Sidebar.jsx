@@ -197,7 +197,7 @@ export default function Sidebar() {
       nested: true,
       children: [
         {
-          title: "Hostel Details",
+          title: "Floor Allocation",
           path: "/managefloors/floorallocation",
         },
       ],

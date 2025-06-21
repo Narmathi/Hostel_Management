@@ -26,3 +26,18 @@
 .global_button:hover {
   background-color: rgb(6, 47, 63);
 }
+
+.alert_box {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 19%;
+  z-index: 9999;
+  padding: 4px;
+  text-align: justify;
+}
+.alert_box > p {
+  margin-top: 11px;
+  text-transform: capitalize;
+  font-size: 15px;
+}

@@ -1,11 +1,14 @@
 import React from "react";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { TextField, Typography, Button, Box, Container } from "@mui/material";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loader from "../Components/Loader";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,6 +19,8 @@ function Login() {
     email: "",
     password: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,6 +57,7 @@ function Login() {
     setErrors(formErrors);
 
     if (isValid) {
+      setLoading(true);
       try {
         const response = await axios.post(
           "http://localhost:5000/api/hostel/login",
@@ -71,7 +77,8 @@ function Login() {
           email: "",
           password: "",
         });
-        window.location.href = "/dashboard";
+
+        navigate("/dashboard", { replace: true });
       } catch (error) {
         if (error.response && error.response.data) {
           alert(error.response.data.message);
@@ -82,53 +89,66 @@ function Login() {
     }
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, []);
+
   return (
     <>
-      <Container
-        maxWidth="xs"
-        sx={{
-          border: "1px solid #000",
-          padding: 5,
-          marginTop: 20,
-        }}
-      >
-        <Typography
-          variant="h4"
-          textAlign={"center"}
-          marginTop={1}
-          marginBottom={3}
+      {loading ? (
+        <Loader />
+      ) : (
+        <Container
+          maxWidth="xs"
+          sx={{
+            border: "1px solid #000",
+            padding: 5,
+            marginTop: 20,
+            filter: loading ? "blur(4px)" : "none",
+            pointerEvents: loading ? "none" : "auto",
+          }}
         >
-          Login
-        </Typography>
-        <form onSubmit={handleSubmit}>
-          <Box display="flex" flexDirection={"column"} gap={2}>
-            <TextField
-              label="Email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              error={Boolean(errors.email)}
-              helperText={errors.email}
-            />
+          <Typography
+            variant="h4"
+            textAlign={"center"}
+            marginTop={1}
+            marginBottom={3}
+          >
+            Login
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <Box display="flex" flexDirection={"column"} gap={2}>
+              <TextField
+                label="Email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                error={Boolean(errors.email)}
+                helperText={errors.email}
+              />
 
-            <TextField
-              label="Password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              error={Boolean(errors.password)}
-              helperText={errors.password}
-            />
+              <TextField
+                label="Password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                error={Boolean(errors.password)}
+                helperText={errors.password}
+              />
 
-            <Button type="submit" variant="contained" color="primary">
-              Login
-            </Button>
-            <Typography>
-              You don't have an account ? <Link to="/">Signup</Link>
-            </Typography>
-          </Box>
-        </form>
-      </Container>
+              <Button type="submit" variant="contained" color="primary">
+                Login
+              </Button>
+              <Typography>
+                You don't have an account ? <Link to="/">Signup</Link>
+              </Typography>
+            </Box>
+          </form>
+        </Container>
+      )}
     </>
   );
 }
