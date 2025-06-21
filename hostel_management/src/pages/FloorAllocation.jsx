@@ -374,6 +374,7 @@ export default function FloorAllocation() {
             <Box className="inline_box_header">
               <Typography variant="h5" gutterBottom>
                 Floor Allocation
+                
               </Typography>
               <Button className="global_button" onClick={handleOpenAdd}>
                 Add Details
